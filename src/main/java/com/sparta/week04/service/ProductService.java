@@ -26,7 +26,6 @@ public class ProductService {
     public Long updateBySearch(Long id, ItemDto itemDto){
         Product product = productRepository.findById(id).orElseThrow(
                 () -> new NullPointerException("해당 아이디가 존재하지 않습니다.")
-
         );
         product.updateByItemDto(itemDto);
         return id;
