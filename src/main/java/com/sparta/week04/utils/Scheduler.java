@@ -20,6 +20,7 @@ public class Scheduler {
 
     @Scheduled(cron = "0 0 1 * * *")
     public void updatePrice() throws InterruptedException{
+        // 비동기로 스케줄링할 경우, @EnableAsync 사용
         System.out.println("가격 업데이트 실행");
         List<Product> productList = productRepository.findAll();
         for(int i=0;i<productList.size();i++){
