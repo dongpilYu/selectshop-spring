@@ -18,7 +18,7 @@ public class Scheduler {
     private final ProductService productService;
     private final NaverShopSearch naverShopSearch;
 
-    @Scheduled(cron = "0 0 1 * * *")
+    @Scheduled(cron = "0 0 1-3 * * *") // 1시, 2시, 3시 업데이트
     public void updatePrice() throws InterruptedException{
         // 비동기로 스케줄링할 경우, @EnableAsync 사용
         System.out.println("가격 업데이트 실행");
