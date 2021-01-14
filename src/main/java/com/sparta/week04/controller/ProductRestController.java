@@ -18,6 +18,7 @@ public class ProductRestController {
     public List<Product> getProducts(){
         return productRepository.findAll();
     }
+    // get : read
 
     @PostMapping("/api/products")
     public Product createProduct(@RequestBody ProductRequestDto requestDto){
@@ -25,6 +26,7 @@ public class ProductRestController {
         productRepository.save(product);
         return product;
     }
+    // post : create
     @PutMapping("/api/products/{id}")
     public Long updateProduct(@PathVariable Long id, @RequestBody ProductMypriceRequestDto requestDto){
         Product product = productRepository.getOne(id);
@@ -33,4 +35,5 @@ public class ProductRestController {
 
         return id;
     }
+    // put : update
 }
