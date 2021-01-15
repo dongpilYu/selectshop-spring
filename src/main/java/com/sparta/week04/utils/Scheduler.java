@@ -24,7 +24,7 @@ public class Scheduler {
         System.out.println("가격 업데이트 실행");
         List<Product> productList = productRepository.findAll();
         for(int i=0;i<productList.size();i++){
-            TimeUnit.SECONDS.sleep(1);
+            TimeUnit.SECONDS.sleep(2);
             Product p = productList.get(i);
             String title = p.getTitle();
             String resultString = naverShopSearch.search(title);
