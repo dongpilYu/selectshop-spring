@@ -18,8 +18,8 @@ public class NaverShopSearch {
     public String search(String query){
         RestTemplate rest = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
-        headers.add("X-Naver-Client-Id", "HAVE TO INSERT");
-        headers.add("X-Naver-Client-Secret", "HAVE TO INSERT");
+        headers.add("X-Naver-Client-Id", "rXVBm5LFejuYmatyKAaR");
+        headers.add("X-Naver-Client-Secret", "8uODon2AnR");
         String body = "";
 
         HttpEntity<String> requestEntity = new HttpEntity<String>(body, headers);
@@ -34,12 +34,13 @@ public class NaverShopSearch {
         return response;
     }
     public List<ItemDto> fromJSONtoItems(String result){
+        System.out.println("[LOG: result] \n" + result);
+        // json array를 담고 있는 json object
         JSONObject rjson = new JSONObject(result);
         JSONArray items = rjson.getJSONArray("items");
         List<ItemDto> ret = new ArrayList<>();
         for(int i=0;i<items.length();i++){
             JSONObject itemJson = items.getJSONObject(i);
-            System.out.println(itemJson);
             ItemDto itemDto = new ItemDto(itemJson);
             ret.add(itemDto);
         }
