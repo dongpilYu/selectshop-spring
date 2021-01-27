@@ -32,7 +32,6 @@ public class ProductRestController {
         Product product = productRepository.getOne(id);
         product.update(requestDto);
         productRepository.save(product);
-
         return id;
     }
     // put : update
